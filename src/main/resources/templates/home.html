@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            margin: auto;
+            width: 50%;
+            padding: 30px;
+            background-color: azure;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to home page</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt delectus officia numquam vel, veniam corrupti quaerat nobis fugiat suscipit nisi asperiores aperiam dolore dolores molestias tenetur praesentium? Officia, eum error.</p>
+        <h3 data-th-text="${name}"></h3>
+        <h3 data-th-text="${instaChannel}"></h3>
+        <h3 data-th-text="${githubRepo}"></h3>
+
+        <a th:href="${githubRepo}">Click to open</a>
+        <a data-th-href="${githubRepo}">Click to open</a> <!-- HTML friendly-->
+
+    </div>
+</body>
+</html>
