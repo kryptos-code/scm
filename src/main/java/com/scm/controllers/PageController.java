@@ -17,5 +17,21 @@ public class PageController {
         model.addAttribute("githubRepo", "https://github.com/kryptos-code");
         return new String("Home");
     }
+
+    // about route
+    @GetMapping("/about")
+    public String aboutPage() {
+        System.out.println("About page loading");
+        // Sending data to view
+        return new String("about");
+    }
+
+    // services
+    @GetMapping("/services")
+    public String servicesPage() {
+        System.out.println("Services page loading");
+        // Sending data to view
+        return new String("services");
+    }
     
 }

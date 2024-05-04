@@ -1,0 +1,16 @@
+{
+  "name": "scm",
+  "version": "1.0.0",
+  "description": "This project aims to deliver a web application to help users to store their contact in cloud storage and store all the related details of their contants in a well organised manner. A key feature of this application is the user can easy send emails to their contact with-in the application.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}
