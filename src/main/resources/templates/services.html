@@ -7,5 +7,15 @@
 </head>
 <body>
     <h1>This is services page</h1>
+    <hr />
+    <div th:replace="~{base :: parent(~{::#buffer-high})}">
+        <section id="buffer-mid">
+            <h1>This is dynamic services passed to base parent</h1>
+        </section>
+
+        <section id="buffer-high">
+            <h1>This is dynamic high buffer passed to base parent</h1>
+        </section>
+    </div>
 </body>
 </html>

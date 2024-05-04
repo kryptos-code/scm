@@ -8,13 +8,19 @@
 <body>
     <h2>This is about page</h2>
     <hr/>
-    <!-- Using fragment -->
-    <div class="host-tag" th:insert="~{base :: parent(~{::section})}">
+    <!-- Using fragment -->isLogin
+    <!-- <div class="host-tag" th:insert="~{base :: parent(~{::section})}"> -->
+<div class="host-tag" th:replace="${isLogin} ? ~{base :: parent(~{::section})} : ~{base :: test(~{::#notLogged})}">
         <section>
+            <h3>User is logged in</h3>
             <h1>This is dynamic content</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nesciunt magni quae, ut dolore a quas perspiciatis, ipsum iste voluptas quidem mollitia molestias commodi deserunt at laboriosam ipsam fugit nam?</p>
             <button>Click here</button>
         </section>
+
+        <div id="notLogged">
+            <h3>User is not logged in</h3>
+        </div>
     </div>
 </body>
 </html>
