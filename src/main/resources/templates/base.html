@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html 
     lang="en" 
-    th:fragment="parent(content)"
+    th:fragment="parent(content, title, script)"
     xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -10,12 +10,31 @@
     <link rel="stylesheet" data-th-href="@{'/css/output.css'}"/>
     <!-- Flowbite CSS Extenstion -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <title>Level sbke niklenge</title>
+    <title data-th-replace="${title}">Level sbke niklenge</title>
 </head>
 <body>
+    <!-- Common Header -->
+    <ul class="p-4">
+        <li>
+            <a data-th-href="@{'/home'}">Home</a>
+        </li>
+        <li>
+            <a data-th-href="@{'/services'}">Services</a>
+        </li>
+        <li>
+            <a data-th-href="@{'/about'}">About</a>
+        </li>
+    </ul>
+
     <!-- Main Content -->
     <section data-th-replace="${content}"></section>
+    
+    <!-- Common Footer -->
+    <div class="text-center p-4"><h1>Learn with Shoaib</h1></div>
+    
     <!-- Flowbite Javascript Extenstion -->
-    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <!-- Implement all scripts available in child pages -->
+    <th:block data-th-replace="${script}"></th:block>
 </body>
 </html>
