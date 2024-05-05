@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base ::parent(~{::#content})}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services</title>
 </head>
 <body>
-    <h1>This is services page</h1>
-    <hr />
-    <div th:replace="~{base :: parent(~{::#buffer-high})}">
-        <section id="buffer-mid">
-            <h1>This is dynamic services passed to base parent</h1>
-        </section>
-
-        <section id="buffer-high">
-            <h1>This is dynamic high buffer passed to base parent</h1>
-        </section>
+    <div id="content">
+        <h2>Service Offerings</h2>
+        <h1>List of Services</h1>
+        <ul>
+            <li>Social Media Marketting</li>
+            <li>Content Creation</li>
+            <li>Graphics Designing</li>
+        </ul>
     </div>
 </body>
 </html>
