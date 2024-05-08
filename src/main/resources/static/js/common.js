@@ -1,55 +1,31 @@
-console.log("Hello from common");
-
 // light theme as default
 let currentTheme = getTheme();
 changeTheme();
 
-// changeTheme
+// Changing webpage theme
 function changeTheme(){
-
-    // set to webpage
-    document.querySelector("html").classList.add(currentTheme);
-
-    // fetch the currentTheme
-    const oldTheme = currentTheme;
 
     // if theme is dark then set light else dark - Set listener
     const changeThemeButton = document.querySelector("#change_theme_button");
-    console.log(oldTheme);
+    themeButton(currentTheme, changeThemeButton);
+    
     changeThemeButton.addEventListener("click", (event)=>{
-        console.log("Button clicked");
+        
+        document.querySelector("html").classList.remove(currentTheme);
+
         if (currentTheme === "dark"){
-            console.log("Theme set to light");
             currentTheme="light";
-        } 
-        else{
+        }  else{
             currentTheme="dark";
         } 
 
         setTheme(currentTheme);
-        console.log(currentTheme);
-        document.querySelector("html").classList.remove(oldTheme);
-        document.querySelector("html").classList.add(currentTheme);
         
         // Change button's value as per theme
-        if(currentTheme=== "dark"){
-            changeThemeButton.querySelector("i").classList.remove("fa-moon"); 
-            changeThemeButton.querySelector("i").classList.add("fa-sun"); 
-    
-        }else {
-            changeThemeButton.querySelector("i").classList.remove("fa-sun");
-            changeThemeButton.querySelector("i").classList.add("fa-moon");
-    
-        }
-
-        changeThemeButton.querySelector("span").textContent = (currentTheme==="light" ? "dark" : "light");
+        themeButton(currentTheme, changeThemeButton);
+        console.log("Successfully! Theme Changed.");
 
     });
-
-
-    // remove current theme from class
-
-    // add new theme in class
 }
 
 // setTheme
@@ -62,3 +38,20 @@ function getTheme() {
     return theme ? theme : "light";
 }
 
+function themeButton(theme, changeThemeButton){
+    // Change webpage theme
+    document.querySelector("html").classList.add(theme);
+
+    // Change Icon
+    if(theme=== "dark"){
+        changeThemeButton.querySelector("i").classList.remove("fa-moon"); 
+        changeThemeButton.querySelector("i").classList.add("fa-sun"); 
+
+    }else {
+        changeThemeButton.querySelector("i").classList.remove("fa-sun");
+        changeThemeButton.querySelector("i").classList.add("fa-moon");
+
+    }
+    // Change Text
+    changeThemeButton.querySelector("span").textContent = (currentTheme==="light" ? "dark" : "light");
+}
