@@ -1,12 +1,16 @@
-// light theme as default
+// FETCH ACTIVE THEME [Light by default]
 let currentTheme = getTheme();
-changeTheme();
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    changeTheme();  
+});
 
 // Changing webpage theme
 function changeTheme(){
 
     // if theme is dark then set light else dark - Set listener
     const changeThemeButton = document.querySelector("#change_theme_button");
+    
     themeButton(currentTheme, changeThemeButton);
     
     changeThemeButton.addEventListener("click", (event)=>{
@@ -19,8 +23,6 @@ function changeTheme(){
             currentTheme="dark";
         } 
 
-        setTheme(currentTheme);
-        
         // Change button's value as per theme
         themeButton(currentTheme, changeThemeButton);
         console.log("Successfully! Theme Changed.");
@@ -39,6 +41,9 @@ function getTheme() {
 }
 
 function themeButton(theme, changeThemeButton){
+    // Setting theme into attribute
+    setTheme(theme);
+    
     // Change webpage theme
     document.querySelector("html").classList.add(theme);
 
